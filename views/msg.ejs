@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Message</title>
+</head>
+
+<body bgcolor="darkcyan">
+    <form method="post" action="message">
+
+        <label for="sender">Sender:</label>
+        <select name="sender" id="sender">
+            <% for(let i=0; i<users.length; i++){ %>
+                <option value=<%=users[i]["name"] %> ><%= users[i]["name"] %>
+                </option>
+                <%}%>
+        </select>
+        <br>
+        <br>
+
+        <label for="receiver">Receiver:</label>
+        <select name="receiver" id="receiver">
+            <% for(let i=0; i<receiver.length; i++){ %>
+                <option value=<%=receiver[i]["name"] %> ><%= receiver[i]["name"] %>
+                </option>
+                <%}%>
+        </select>
+        <br>
+        <br>
+
+        <label for="message">Message:</label>
+        <input name="message" type="text" id="message" placeholder="Write your message here">
+        <br>
+        <br>
+        <input type="submit" value="Send Message">
+    </form>
+    <hr>
+
+    <h2 class="w3-opacity"><b>
+            From <%= thisSender %> To <%= thisReceiver %>
+        </b></h2>
+    <hr>
+
+    <% for(let i=0; i<msgInfo.length; i++){ %>
+        <div class="w3-container">
+            <h4 class="w3-opacity"><b>
+                    <%= msgInfo[i] %>
+                </b></h4>
+            <hr />
+        </div>
+        <%}%>
+
+
+</body>
+
+</html>
